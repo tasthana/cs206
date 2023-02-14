@@ -9,14 +9,30 @@ import os
 import random 
 
 physicsClient = p.connect(p.GUI)
+p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
 a = -.91
 b = .91
+x = numpy.linspace(0, numpy.pi*2, 1000) 
 
-targetAngles = numpy.linspace(0, 2*numpy.pi, num= 1000)
-numpy.save(os.path.join("data", "targetAngles.npy"), targetAngles)
-exit()
+amplitude = numpy.pi/4
+frequency = 10
+phaseOffset = 1
+
+amplitude1 = numpy.pi/4
+frequency1 = 10
+phaseOffset1 = 7
+
+
+#equate = amplitude * sin(frequency * x + phaseOffset)
+#targetAngles = numpy.array(numpy.pi/4 * numpy.sin(x))
+
+targetAngles = amplitude1 * numpy.sin(frequency1 * x + phaseOffset1)
+targetAngles2 = amplitude * numpy.sin(frequency * x + phaseOffset)
+#numpy.save(os.path.join("data", "targetAngles.npy"), targetAngles)
+#numpy.save(os.path.join("data", "targetAngles2.npy"), targetAngles2)
+#exit()
 
 planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
@@ -27,14 +43,14 @@ pyrosim.Prepare_To_Simulate(robotId)
 backLegSensorValues = numpy.zeros(1000)
 frontLegSensorValues = numpy.zeros(1000)
 for x in range(0, 1000):
-    time.sleep(.001)
+    time.sleep(1/240)
     p.stepSimulation()
     backLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
     print(backLegSensorValues)
     print(frontLegSensorValues)
-    pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = random.uniform(a,b), maxForce = 500)
-    pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = random.uniform(a,b), maxForce = 500)
+    pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = targetAngles[x], maxForce = 25)
+    pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = targetAngles2[x], maxForce = 25)
 
 numpy.save(os.path.join("data", "BackLegSensorValues.npy"), backLegSensorValues)
 numpy.save(os.path.join("data", "FrontLegSensorValues.npy"), frontLegSensorValues)
