@@ -17,6 +17,7 @@ def Create_Robot(torso_coordinates, link_size):
 	pyrosim.Send_Joint( name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = joint_torso_frontleg_coordinates)
 	pyrosim.Send_Cube(name="FrontLeg", pos=frontLeg_coordinates , size=link_size)
 	pyrosim.End()
+	
 link_size = [1, 1, 1]
 torso_coordinates = [1, 0, 1.5*link_size[2]]
 Create_World()
