@@ -37,7 +37,8 @@ frontLegSensorValues = numpy.zeros(1000)
 # loop length
 length = 1001
 
-# time sleep constant 
+
+numberOfGenerations = 3
 
 
 

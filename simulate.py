@@ -63,19 +63,20 @@
 # p.disconnect()
 
 from simulation import SIMULATION
-from motor import MOTOR
-from sensor import SENSOR
-import pybullet as p
-import pybullet_data
-import generate
-import time 
-import pyrosim.pyrosim as pyrosim
-import numpy
-import os 
-import random 
-import constants as c
+import sys
 
 
+# call the simulation class
+directOrGUI = sys.argv[1]
+simulation = SIMULATION(directOrGUI)
 
-simulation = SIMULATION()
+
+#call run function 
 simulation.Runs()
+
+simulation.Get_Fitness()
+
+
+
+
+

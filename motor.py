@@ -16,7 +16,7 @@ class MOTOR:
     def __init__(self, jointName):
 
         self.jointName = jointName
-        
+    
 
     def Set_Value(self, desiredAngle, ID):
         pyrosim.Set_Motor_For_Joint(
