@@ -37,8 +37,12 @@ frontLegSensorValues = numpy.zeros(1000)
 # loop length
 length = 1001
 
-
+# hillclimber constant 
 numberOfGenerations = 3
+
+#parallel hillclimber constant 
+populationSize = 20
+numberOfGenerations = 20
 
 
 

@@ -1,6 +1,6 @@
 
 import os 
-import hillclimber as HILL_CLIMBER
+import parallelHillClimber as PARALLEL_HILL_CLIMBER
 import pyrosim.pyrosim as pyrosim
 
 
@@ -9,7 +9,7 @@ import pyrosim.pyrosim as pyrosim
 # os.system("python3 generate.py")
 # os.system("python3 simulate.py")
 
-hc = HILL_CLIMBER.HILL_CLIMBER()
+phc = PARALLEL_HILL_CLIMBER.PARALLEL_HILL_CLIMBER()
 
-hc.Evolve()
-hc.Show_Best()
+phc.Evolve()
+phc.Show_Best()

@@ -10,20 +10,24 @@ import pybullet_data
 import generate
 import time 
 import pyrosim.pyrosim as pyrosim
+import random as random
 import numpy
 import os 
-import random 
 import constants as c
+import math
 
 
 class ROBOT:
 
-    def __init__(self):
-        self.robotId = p.loadURDF("body.urdf")
+    def __init__(self, solutionID):
+        self.solutionID = solutionID
+
+        self.robotId = p.loadURDF("body" + self.solutionID + ".urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.Prepare_To_Sense()
         self.Prepare_to_Act()
-        self.nn = NEURAL_NETWORK("brain.nndf")
+
+        self.nn = NEURAL_NETWORK("mind" + self.solutionID + ".nndf")
 
     def Prepare_To_Sense(self):
         self.sensors = {}
@@ -60,10 +64,13 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         # x position in first tuple element
         xCoordinateOfLinkZero = positionOfLinkZero[0]
+
+        tempFitness = open("tmp" + self.solutionID + ".txt", "w")
+        tempFitness.write(str(xCoordinateOfLinkZero))
+        tempFitness.close()
         # Write to file
-        file = open("fitness.txt", "w")
-        file.write(str(xCoordinateOfLinkZero))
-        file.close()
+        os.system("mv tmp" + self.solutionID + ".txt" "fitness" + self.solutionID + ".txt")
+        exit(" -- Exit from robot.Get_Fitness")
         
 
 

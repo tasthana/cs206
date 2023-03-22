@@ -68,7 +68,8 @@ import sys
 
 # call the simulation class
 directOrGUI = sys.argv[1]
-simulation = SIMULATION(directOrGUI)
+solutionID = sys.argv[2]
+simulation = SIMULATION(directOrGUI, solutionID)
 
 
 #call run function 
