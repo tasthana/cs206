@@ -35,15 +35,17 @@ class PARALLEL_HILL_CLIMBER:
         for currentGeneration in range(c.numberOfGenerations):
             # current generations = 2
             self.Evolve_For_One_Generation()
+     
 
     def Show_Best(self): 
-        currentFitness = 100
-        for key in self.parents:
+        currentFitness = 10
+        for key in self.parents.keys():
                 if self.parents[key].fitness < currentFitness:
                     bestKey = key
                     currentFitness = self.parents[key].fitness
+        print("This is the best fitness : ", self.parents[bestKey].fitness)            
         self.parents[bestKey].Start_Simulation("GUI")
-        print(self.parents[bestKey].fitness)
+        
 
         
     def Evolve_For_One_Generation(self):
@@ -56,7 +58,7 @@ class PARALLEL_HILL_CLIMBER:
     def Spawn(self):
         self.child ={}
         for key in range(len(self.parents)):
-            self.child[key] =copy.deepcopy(self.parent[key])
+            self.child[key] =copy.deepcopy(self.parents[key])
             self.child[key].Set_ID(self.nextAvailableID)
             self.nextAvailableID += 1
 

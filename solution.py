@@ -27,7 +27,7 @@ class SOLUTION:
         self.Create_World()
         self.Generate_Body()
         self.Generate_Mind()
-        string = "python3 simulate.py " + directOrGUI + " " + str(self.myID)
+        string = "python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &" 
         os.system(string)
 
 

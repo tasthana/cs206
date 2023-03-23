@@ -69,8 +69,10 @@ class ROBOT:
         tempFitness.write(str(xCoordinateOfLinkZero))
         tempFitness.close()
         # Write to file
-        os.system("mv tmp" + self.solutionID + ".txt" "fitness" + self.solutionID + ".txt")
-        exit(" -- Exit from robot.Get_Fitness")
+        # os.system("mv tmp" + self.solutionID + ".txt " "fitness" + self.solutionID + ".txt")
+        os.rename("tmp"+str(self.solutionID)+".txt" , "fitness"+str(self.solutionID)+".txt")
+
+       
         
 
 

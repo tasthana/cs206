@@ -41,8 +41,8 @@ length = 1001
 numberOfGenerations = 3
 
 #parallel hillclimber constant 
-populationSize = 20
-numberOfGenerations = 20
+populationSize = 10
+numberOfGenerations = 10
 
 
 
