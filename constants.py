@@ -24,7 +24,6 @@ amplitude = numpy.pi/4
 frequency = 10
 phaseOffset = 1
 
-
 # set constants for motor movement 2
 amplitude1 = numpy.pi/4
 frequency1 = 10
@@ -41,9 +40,14 @@ length = 1001
 numberOfGenerations = 3
 
 #parallel hillclimber constant 
-populationSize = 10
-numberOfGenerations = 10
+populationSize = 8
+numberOfGenerations = 8
 
+#quadruped constants 
+numSensorNeurons = 9
+numMotorNeurons = 8
+
+motorJointRange = .25
 
 
 
