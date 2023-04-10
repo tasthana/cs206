@@ -58,14 +58,14 @@ class ROBOT:
 
     def Get_Fitness(self):
         #tuple of states
-        stateOfLinkZero = p.getLinkState(self.robotId,0)
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         # x,y,z coords of tuple[0]
-        positionOfLinkZero = stateOfLinkZero[0]
+        basePosition = basePositionAndOrientation[0]
         # x position in first tuple element
-        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        xPosition = basePosition[0]
 
         tempFitness = open("tmp" + self.solutionID + ".txt", "w")
-        tempFitness.write(str(xCoordinateOfLinkZero))
+        tempFitness.write(str(xPosition))
         tempFitness.close()
         # Write to file
         # os.system("mv tmp" + self.solutionID + ".txt " "fitness" + self.solutionID + ".txt")
