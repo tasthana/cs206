@@ -13,3 +13,4 @@ phc = PARALLEL_HILL_CLIMBER.PARALLEL_HILL_CLIMBER()
 
 phc.Evolve()
 phc.Show_Best()
+phc.Matrix()

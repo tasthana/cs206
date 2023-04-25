@@ -86,7 +86,7 @@ class SOLUTION:
         pyrosim.Send_Cube(name="LowerBackLeg2", pos=[0.5,0, -0.5] , size=[0.2,.2,1])
 
 
-#front legs
+#front legs 001 
         pyrosim.Send_Joint( name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [0,0.5,1], jointAxis = "0 0 1") 
         pyrosim.Send_Cube(name="FrontLeg", pos=[0,0.5, 0] , size=[0.2,1,0.2])
 
@@ -100,7 +100,7 @@ class SOLUTION:
         pyrosim.Send_Cube(name="LowerFrontLeg2", pos=[0.5,0, -0.5] , size=[0.2,.2,1])
 
 
-#left legs
+#left legs 110 
         pyrosim.Send_Joint( name = "Torso_LeftLeg" , parent= "Torso" , child = "LeftLeg" , type = "revolute", position = [-0.5,0,1], jointAxis = "1 1 0")
         pyrosim.Send_Cube(name="LeftLeg", pos=[-0.5,0, 0] , size=[1,.2,0.2])
 
@@ -114,7 +114,7 @@ class SOLUTION:
         pyrosim.Send_Cube(name="LowerLeftLeg2", pos=[-2,.55, -0.5] , size=[0.2,.2,1])
 
 
-#right legs 
+#right legs 011 
         pyrosim.Send_Joint( name = "Torso_RightLeg" , parent= "Torso" , child = "RightLeg" , type = "revolute", position = [.5,0,1], jointAxis = "0 1 1")
         pyrosim.Send_Cube(name="RightLeg", pos=[0.5,0, 0] , size=[1,.2,0.2])
 
@@ -134,7 +134,6 @@ class SOLUTION:
     def Generate_Mind(self):
         pyrosim.Start_NeuralNetwork("mind" + str(self.myID) + ".nndf")
 
-
  
 # lower leg sensor neurons 
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "LowerFrontLeg")
@@ -142,10 +141,10 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 2  , linkName = "LowerLeftLeg")
         pyrosim.Send_Sensor_Neuron(name = 3  , linkName = "LowerRightLeg")
 
-        pyrosim.Send_Sensor_Neuron(name = 4  , linkName = "LowerBackLeg2")
-        pyrosim.Send_Sensor_Neuron(name = 5  , linkName = "LowerFrontLeg2")
+        pyrosim.Send_Sensor_Neuron(name = 4  , linkName = "LowerFrontLeg2")
+        pyrosim.Send_Sensor_Neuron(name = 5  , linkName = "LowerBackLeg2")
         pyrosim.Send_Sensor_Neuron(name = 6  , linkName = "LowerLeftLeg2")
-        pyrosim.Send_Sensor_Neuron(name = 6  , linkName = "LowerRightLeg2")
+        pyrosim.Send_Sensor_Neuron(name = 7  , linkName = "LowerRightLeg2")
 
         
 

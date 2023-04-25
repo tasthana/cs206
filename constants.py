@@ -37,11 +37,11 @@ frontLegSensorValues = numpy.zeros(1000)
 length = 1001
 
 # hillclimber constant 
-numberOfGeneration = 3
+numberOfGeneration = 5
 
 #parallel hillclimber constant 
-populationSize = 10
-numberOfGenerations = 10
+populationSize = 5
+numberOfGenerations = 5
 
 #quadruped constants 
 numSensorNeurons = 8

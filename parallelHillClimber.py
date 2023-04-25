@@ -25,6 +25,9 @@ class PARALLEL_HILL_CLIMBER:
         self.parents = {}
         self.nextAvailableID = 0
 
+        abmatrix = numpy.zeros((c.numberOfGenerations, c.populationSize))
+        self.abmatrix = abmatrix
+
         for i in range(0, c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
@@ -32,8 +35,9 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evolve(self):
         self.Evaluate(self.parents)
-        for currentGeneration in range(c.numberOfGeneration):
+        for currentGeneration in range(c.numberOfGenerations):
             # current generations = 2
+            self.currentGeneration = currentGeneration
             self.Evolve_For_One_Generation()
      
 
@@ -46,7 +50,6 @@ class PARALLEL_HILL_CLIMBER:
         print("This is the best fitness : ", self.parents[bestKey].fitness)            
         self.parents[bestKey].Start_Simulation("GUI")
         
-
         
     def Evolve_For_One_Generation(self):
         self.Spawn()
@@ -79,5 +82,15 @@ class PARALLEL_HILL_CLIMBER:
 
     def Print(self):
         for key in self.parents:
-            print("Parent:", self.parents[key].fitness, "Child:", self.child[key].fitness)
-        print()
+            self.abmatrix[key, self.currentGeneration] = self.parents[key].fitness
+            # print("Parent:", self.parents[key].fitness, "Child:", self.child[key].fitness)
+
+
+    def Matrix(self):
+        print(self.abmatrix)
+        numpy.savetxt("Fitness_Values_Octo", self.abmatrix, delimiter = ',' , fmt='%1.4e')
+        numpy.save("Fitness_Values_Octo", self.abmatrix, delimiter = ',' , fmt='%1.4e')
+
+    
+
+
