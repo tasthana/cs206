@@ -40,8 +40,8 @@ length = 1001
 numberOfGeneration = 5
 
 #parallel hillclimber constant 
-populationSize = 10
-numberOfGenerations = 10
+populationSize = 15
+numberOfGenerations = 15
 
 #quadruped constants 
 numSensorNeurons = 8

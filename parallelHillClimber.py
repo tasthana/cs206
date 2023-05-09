@@ -88,9 +88,9 @@ class PARALLEL_HILL_CLIMBER:
 
     def Matrix(self):
         print(self.abmatrix)
-        numpy.savetxt("Fitness_Values_Octo2", self.abmatrix, delimiter = ',' , fmt='%1.4e')
-        numpy.save("Fitness_Values_Octo2", self.abmatrix)
+        numpy.savetxt("Fitness_Values_Octo_3", self.abmatrix, delimiter = ',' , fmt='%1.4e')
+        numpy.save("Fitness_Values_Octo_3", self.abmatrix)
 
-    
+
 
 

@@ -21,6 +21,7 @@ targetAngleValues2 = numpy.load(os.path.join("data", "targetAngles2.npy"))
 # plotting 
 #plot.plot(backLegSensorValues, label='Back Leg', linewidth=3.5)
 #plot.plot(frontLegSensorValues,  label='Front Leg')
+
 plot.plot(numpy.arange(len(targetAngleValues)), targetAngleValues)
 plot.plot(numpy.arange(len(targetAngleValues2)), targetAngleValues2)
 
